@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Medical Amenities Committee
+{% endblock title %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="bg-primary text-white text-center py-3 rounded shadow-sm">
+        <h2>Medical Amenities Committee</h2>
+    </div>
+    <table class="table table-bordered table-striped table-hover mt-3">
+        <thead class="bg-primary text-white text-center">
+            <tr>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Email ID</th>
+                <th>Contact Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">
+                    <img src="static/Dr.-Anmol.webp" alt="Dr. Anmol Ratna Saxena" class="img-thumbnail" style="width: 100px; height: 100px;">
+                </td>
+                <td>Dr. Anmol Ratna Saxena</td>
+                <td>Chairperson Medical Amenities Committee</td>
+                <td>
+                    <a href="mailto:chmedical@nitdelhi.ac.in">chmedical@nitdelhi.ac.in</a>,<br>
+                    <a href="mailto:anmolsaxena@nitdelhi.ac.in">anmolsaxena@nitdelhi.ac.in</a>
+                </td>
+                <td>011-33861183</td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    <img src="static/Dr.-Anurag.webp" alt="Dr. Anurag Singh" class="img-thumbnail" style="width: 100px; height: 100px;">
+                </td>
+                <td>Dr. Anurag Singh</td>
+                <td>Member Medical Amenities Committee</td>
+                <td>
+                    <a href="mailto:anuragsg@nitdelhi.ac.in">anuragsg@nitdelhi.ac.in</a>
+                </td>
+                <td>011-33861120/22</td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    <img src="static/Dr.-Manoj.webp" alt="Dr. Manoj Kumawat" class="img-thumbnail" style="width: 100px; height: 100px;">
+                </td>
+                <td>Dr. Manoj Kumawat</td>
+                <td>Member Medical Amenities Committee</td>
+                <td>
+                    <a href="mailto:manoj@nitdelhi.ac.in">manoj@nitdelhi.ac.in</a>
+                </td>
+                <td>+91-9828288334</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock body %}

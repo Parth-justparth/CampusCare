@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Medicine Availability{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Medicine Availability</h1>
+
+  <form method="POST" action="{{ url_for('medicines') }}">
+    <div class="table-responsive">
+      <table class="table table-bordered text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Medicine Name</th>
+            <th>Dosage</th>
+            <th>Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for medicine in medicines %}
+          <tr>
+            <td>{{ medicine.medicine }}</td>
+            <td>{{ medicine.dosage }}</td>
+            <td>
+              <div class="form-check form-switch d-flex justify-content-center align-items-center">
+                {% if is_admin %}
+                <input class="form-check-input {{ 'bg-success border-success' if medicine.availability else 'bg-danger border-danger' }}" 
+                       type="checkbox" 
+                       id="medicine{{ medicine.mid }}" 
+                       name="medicine_{{ medicine.mid }}" 
+                       {% if medicine.availability %}checked{% endif %}>
+                {% else %}
+                <span class="ms-2 fw-bold {{ 'text-success' if medicine.availability else 'text-danger' }}">
+                  {% if medicine.availability %}Available{% else %}Not Available{% endif %}
+                </span>
+                {% endif %}
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% if is_admin %}
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary">Submit Updates</button>
+    </div>
+    {% endif %}
+  </form>
+</div>
+{% endblock body %}

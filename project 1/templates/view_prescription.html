@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Your Prescriptions
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Your Prescriptions</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover shadow-sm">
+            <thead class="table-light">
+                <tr class="text-center">
+                    <th>Patient Name</th>
+                    <th>Doctor Name</th>
+                    <th>Prescription</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if prescriptions %}
+                    {% for prescription in prescriptions %}
+                        <tr>
+                            <td class="text-center">{{ prescription.patientname }}</td>
+                            <td class="text-center">{{ prescription.doctorname }}</td>
+                            <td>{{ prescription.prescription }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="text-center text-muted">No prescriptions found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{{ url_for('index') }}" class="btn btn-outline-primary">Back to Home</a>
+    </div>
+</div>
+{% endblock body %}

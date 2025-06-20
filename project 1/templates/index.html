@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+HOME
+{% endblock title %}
+
+{% block body %}
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- Moving Text Bar -->
+  <div class="moving-text-bar">
+    <div class="text-container">
+      <p>
+        Welcome to NIT Delhi Health Center ! Providing quality care for everyone. | Open Monday to Saturday 8 AM to 9 PM. | Call us at 1234567890 | Disaster Helpline : 1077 | Women Helpline : 1091 | Child Helpline : 1098 | Ambulance : 102/1099 | Fire & Rescue  : 101 | Police : 100
+
+
+      </p>
+    </div>
+  </div>
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ url_for('static', filename='HC1.png') }}" class="d-block w-100" alt="Slide 1">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>WELCOME TO CampusCare</h5>
+          <p>Welcome to National Institute Technology Delhi Health Center</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='HC.PNG') }}" class="d-block w-100" alt="Slide 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>WELCOME TO CampusCare</h5>
+          <p>Welcome to National Institute Technology Delhi Health Center</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='HC2.png') }}" class="d-block w-100" alt="Slide 3">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>WELCOME TO CampusCare</h5>
+          <p>Welcome to National Institute Technology Delhi Health Center</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+
+  <!-- Inline Styles -->
+  <style>
+    .moving-text-bar {
+      background-color: #007bff;
+      color: white;
+      font-size: 1.2em;
+      padding: 10px 0;
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1030; /* Ensures the bar stays above other elements */
+    }
+
+    .text-container {
+      display: inline-block;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .text-container p {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      animation: scroll-text 20s linear infinite;
+    }
+
+    @keyframes scroll-text {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    body {
+      padding-top: 50px; /* Avoid overlap with the moving bar */
+    }
+  </style>
+{% endblock body %}

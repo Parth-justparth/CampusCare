@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Prescription
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Add Prescription</h1>
+    <form method="POST" class="mx-auto shadow p-4 bg-light rounded" style="max-width: 600px;">
+        <div class="mb-3">
+            <label for="email" class="form-label">Patient Email:</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-control" 
+                placeholder="Enter patient's email" 
+                required
+            >
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Patient Name:</label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form-control" 
+                placeholder="Enter patient's name" 
+                required
+            >
+        </div>
+        <div class="mb-3">
+            <label for="prescription" class="form-label">Prescription:</label>
+            <textarea 
+                id="prescription" 
+                name="prescription" 
+                class="form-control" 
+                rows="8" 
+                placeholder="Enter prescription details" 
+                required
+            ></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Save Prescription</button>
+    </form>
+    <div class="text-center mt-4">
+        <a href="{{ url_for('index') }}" class="btn btn-outline-primary">Back to Home</a>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+add staff
+{% endblock title %}
+
+{% block body %}
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+<h2 class="text-center text-white bg-primary">Add Staff</h2>
+
+<br>
+<form action="/doctors" method="post" class="bg-light rounded shadow">
+
+<div class="form-group">
+
+<input type="email" class="form-control" name="email" placeholder="Email required"  required>
+
+</div>
+<br>
+
+<div class="form-group">
+
+<input type="text" class="form-control" name="doctorname" placeholder="Name" required>
+
+</div>
+<br>
+
+
+<div class="form-group">
+
+<input type="text" class="form-control" name="dept" placeholder="Serving as" required>
+
+</div>
+<br>
+
+
+
+  <button type="submit" class="btn btn-warning btn-sm btn-block">Book</button>
+
+</form>
+
+</div>
+<div class="col-md-4"></div>
+
+</div>
+
+</div>
+
+{% endblock body %}
